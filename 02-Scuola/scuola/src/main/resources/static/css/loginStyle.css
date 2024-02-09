@@ -1,0 +1,14 @@
+body{
+    background-color: dimgrey;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    background-color: bisque;
+}
+.spaced{
+    padding-top: 10%;
+}
