@@ -109,6 +109,63 @@ public class BevandaDAO implements IDAO{
         return ris;
     }
 
+    public Map<Integer, Entity> read(String nome) {
+        //Mi scrivo la query da eseguire
+        String query = "select * from bevande where nome like '%?%'";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        Map<Integer, Entity> ris = new HashMap<>();
+
+
+        try{
+            //Chiedo alla connessione di preparare la query tramite PreparedStatement
+            ps = database.getConnection().prepareStatement(query);
+            ps.setString(1, nome);
+            //Eseguo la query sul db (equivale al tasto con il fulmine su MySQL)
+            rs = ps.executeQuery();
+
+            //Mi ciclo il risultato del db
+            //ResultSet rappresenta la tabella e la lettura funziona similarmente al file
+            while(rs.next()){
+                // Entity e = new Bevanda(
+                //     rs.getInt(1),       //ID 
+                //     rs.getString(2),    //NOME
+                //     rs.getDouble(3)    //PREZZO
+                //     );  
+
+                //Mi preparo una mappa con i parametri dell'oggetto Bevanda che voglio istanziare
+                Map<String, String> params = new HashMap<>();
+                params.put("id", rs.getInt(1)+"");
+                params.put("nome", rs.getString(2));
+                params.put("prezzo", rs.getDouble(3)+"");
+
+
+                // context.getBean(Snack.class, rs.getInt(1), rs.getString(2), rs.getDouble(3));
+                
+                //Chiedo al context di spring (che ho recuperato grazie all'Autowired fatto sopra) di istanziarmi un Bean di tipo Bevanada con la mappa parametri che ho preparato
+                Bevanda e = context.getBean(Bevanda.class, params);
+
+                //Inserisco l'oggetto appena creato nella mappa degli oggetti associato al suo id come chiave
+                ris.put(e.getId(), e);
+            }
+        }
+        catch(SQLException exc){
+            System.out.println("Errore nella select in BevandaDAO");
+        }
+        finally{
+            try{
+                ps.close();
+                rs.close();
+            }
+            catch(Exception exc){
+                System.out.println("Errore chiusura PreparedStatement");
+            }
+        }
+        
+        return ris;
+    }
+
     @Override
     public void update(Entity e) {
         String query = "update bevande set nome = ?, prezzo = ? where id = ?";

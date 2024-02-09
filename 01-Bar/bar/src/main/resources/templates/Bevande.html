@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+    <title>Bevande</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/bevande.js"></script>
+</head>
+<body>
+    <h2>Lista bevande</h2>
+    <img src="imgs/saturno1.jpg" alt="Qui c'era un'immagine di saturno" width="200px">
+    <hr>
+
+    <table>
+        <tr>
+            <td>Nome</td>
+            <td>Prezzo</td>
+            <td>Dettaglio</td>
+            <td>ELIMINA</td>
+        </tr>
+        <tr th:each="bevanda : ${bevande}">
+            <td th:text="${bevanda.nome}"></td>
+            <td th:text="${bevanda.prezzo}"></td>
+            <td>
+                <a th:href="|/dettaglioBevanda?id=${bevanda.id}|">Vai al dettaglio bevanda</a>
+                <!-- <a th:href="|/dettaglioBevanda/${bevanda.id}|">Vai al dettaglio bevanda</a> -->
+            </td>
+            <td>
+                <a th:href="|/eliminaBevanda?id=${bevanda.id}|">ELIMINA BEVANDA</a>
+                <!-- <a th:href="|/dettaglioBevanda/${bevanda.id}|">Vai al dettaglio bevanda</a> -->
+            </td>
+        </tr>
+    </table>
+
+    <hr>
+    <h1>Inserisci una bevanda</h1>
+
+    <form action="/inserisciBevanda" method="post">
+        <label for="nome">Nome bevanda:</label>
+        <input type="text" name="nome" placeholder="Nome bevanda">
+        <br>
+        <label for="prezzo">Prezzo Bevanda:</label>
+        <input type="text" name="prezzo" placeholder="Prezzo bevanda">
+        <br>
+        <input type="submit" value="CREA BEVANDA">
+    </form>
+
+    <h1>Modifica una bevanda</h1>
+    <select id="bevandaSelection" onchange="onSelectionChange()">
+        <option th:id="|bev_${bevanda.id}|" th:value="|bev_${bevanda.id}|" th:each="bevanda : ${bevande}" th:text="|${bevanda.id} - ${bevanda.nome}|" th:id-bevanda="${bevanda.id}" th:nome-bevanda="${bevanda.nome}" th:prezzo-bevanda="${bevanda.prezzo}"></option>
+    </select>
+
+    <form action="/modificaBevanda" method="post">
+        <input id="inputIdBevanda" type="hidden" name="id">
+        <label for="nome">Nome bevanda:</label>
+        <input id="inputNomeBevanda" type="text" name="nome" placeholder="Nome bevanda">
+        <br>
+        <label for="prezzo">Prezzo Bevanda:</label>
+        <input id="inputPrezzoBevanda" type="text" name="prezzo" placeholder="Prezzo bevanda">
+        <br>
+        <input type="submit" value="MODIFICA BEVANDA">
+    </form>
+
+
+</body>
+</html>

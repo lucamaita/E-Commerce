@@ -108,6 +108,55 @@ public class SnackDAO implements IDAO{
         return ris;
     }
 
+
+    public Map<Integer, Entity> read(String nome){
+        String query = "select * from snacks where nome like '%?%'";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        Map<Integer, Entity> ris = new HashMap<>();
+
+
+        try{
+            ps = database.getConnection().prepareStatement(query);
+            ps.setString(1, nome);
+            rs = ps.executeQuery();
+
+            while(rs.next()){
+                // Entity e = new Snack(
+                //     rs.getInt(1),       //ID 
+                //     rs.getString(2),    //NOME
+                //     rs.getDouble(3),    //PREZZO
+                //     rs.getInt(4),       //QUANTITA
+                //     rs.getBoolean(5));  //SALATO
+                Map<String, String> params = new HashMap<>();
+                params.put("id", rs.getInt(1)+"");
+                params.put("nome", rs.getString(2));
+                params.put("prezzo", rs.getDouble(3)+"");
+                params.put("quantita", rs.getInt(4)+"");
+                params.put("salato", rs.getBoolean(5)+"");
+
+                // context.getBean(Snack.class, rs.getInt(1), rs.getString(2), rs.getDouble(3));
+                Snack e = context.getBean(Snack.class, params);
+                ris.put(e.getId(), e);
+            }
+        }
+        catch(SQLException exc){
+            System.out.println("Errore nella select in SnackDAO");
+        }
+        finally{
+            try{
+                ps.close();
+                rs.close();
+            }
+            catch(Exception exc){
+                System.out.println("Errore chiusura PreparedStatement");
+            }
+        }
+        
+        return ris;
+    }
+
     @Override
     public void update(Entity e) {
         String query = "update snacks set nome = ?, prezzo = ?, quantita = ?, salato = ? where id = ?";

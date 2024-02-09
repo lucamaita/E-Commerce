@@ -29,12 +29,14 @@ public class EntitiesContext {
          * 
          */
 
-
-
+        int id = params.containsKey("id") ? Integer.parseInt(params.get("id")) : -1;
+        String nome = params.containsKey("nome") ? params.get("nome") : "";
+        double prezzo = params.containsKey("prezzo") ? Double.parseDouble(params.get("prezzo")) : -1;
+        
         Bevanda b = new Bevanda(
-            Integer.parseInt(params.get("id")),
-            params.get("nome"),
-            Double.parseDouble(params.get("prezzo"))
+            id,
+            nome,
+            prezzo
         );
         return b;
     }
