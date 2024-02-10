@@ -8,11 +8,11 @@
 		<version>3.2.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.scai</groupId>
-	<artifactId>libreria</artifactId>
+	<groupId>com.maita</groupId>
+	<artifactId>GameStop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>libreria</name>
-	<description>Libreria refactor</description>
+	<name>GameStop</name>
+	<description>Esercizio Spring-JDBC</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

@@ -1,10 +1,10 @@
-package com.scai.libreria;
+package com.maita.GameStop;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LibreriaApplicationTests {
+class GameStopApplicationTests {
 
 	@Test
 	void contextLoads() {
