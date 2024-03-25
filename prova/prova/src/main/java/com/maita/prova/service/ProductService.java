@@ -8,6 +8,7 @@ import java.util.List;
 public interface ProductService {
 
     public Product insertProduct(Product product);
+    public String codiceGenerator(Product product);
     public Product findProductById(Long id) throws Exception;
     public void deleteProduct(Long id) throws Exception;
     public Product updateProduct(Product product, Long id) throws Exception;

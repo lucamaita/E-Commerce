@@ -24,6 +24,8 @@ public class Product {
     private Double prezzo;
     private String colore;
     private String taglia;
+    private String genere;
+    private String accessorio;
     private Double peso;
     private Integer quantita;
     private LocalDate dataInserimento;
