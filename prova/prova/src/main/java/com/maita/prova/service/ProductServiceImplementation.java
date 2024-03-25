@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,8 +28,8 @@ public class ProductServiceImplementation implements ProductService {
     public Product insertProduct(Product product) {
 
         Product insertedProduct = new Product();
-        insertedProduct.setId(product.getId());
         insertedProduct.setNome(product.getNome());
+        insertedProduct.setDescrizione(product.getDescrizione());
         insertedProduct.setFoto(product.getFoto());
         insertedProduct.setCategoria(product.getCategoria());
         insertedProduct.setPrezzo(product.getPrezzo());
@@ -80,6 +81,9 @@ public class ProductServiceImplementation implements ProductService {
 
         if(product.getNome()!=null){
             oldProduct.setNome(product.getNome());
+        }
+        if(product.getDescrizione()!=null){
+            oldProduct.setDescrizione(product.getDescrizione());
         }
         if(product.getFoto()!=null){
             oldProduct.setFoto(product.getFoto());
@@ -155,6 +159,37 @@ public class ProductServiceImplementation implements ProductService {
         }else{
             return products;
         }
+    }
+
+    @Override
+    public List<Product> ricercaPrezzo(Integer min, Integer max) throws Exception {
+        List<Product> products = productRepository.findAll();
+        List<Product> abbordabili = new ArrayList<>();
+        for(Product p : products){
+            if (p.getPrezzo() > min && p.getPrezzo() < max){
+                abbordabili.add(p);
+            }
+        }
+        return abbordabili;
+    }
+
+    @Override
+    public List<Product> findByNome(String nome) throws Exception {
+//        List<Product> products = productRepository.findByNome(nome);
+//
+//        if(products.isEmpty()){
+//            throw new Exception("Prodotto non trovato per nome: " + nome);
+//        }else{
+//            return products;
+//        }
+        List<Product> products = productRepository.findAll();
+        List<Product> corrispondenze = new ArrayList<>();
+        for(Product p : products){
+            if (p.getNome().toLowerCase().contains(nome.toLowerCase())){
+                corrispondenze.add(p);
+            }
+        }
+        return corrispondenze;
     }
 
 }

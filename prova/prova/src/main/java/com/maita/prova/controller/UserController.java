@@ -10,11 +10,12 @@ import java.util.List;
 // Classe Controller: API layer, gestisce le richieste HTTP e fornisce le conseguenti risposte
 // una volta ricevuta la richiesta si interfaccia con il service per elaborare le richieste tramite la buisness logic
 @RestController // RestController: i metodi del controller resituiranno direttamente i dati serializzati come risposte HTTP invece di HTML
+@RequestMapping("/api/users")
 public class UserController {
 
     @Autowired // Autowired permette l'iniezione automatica delle dipendenze (instanzia i bean necessari per l'iniezione)
     private UserRepository userRepository;
-    @PostMapping("/users")
+    @PostMapping("/create")
     public User createUser(@RequestBody User user) throws Exception {
 
         User isExist = userRepository.findByEmail(user.getEmail());
@@ -26,7 +27,7 @@ public class UserController {
 
         return savedUser;
     }
-    @DeleteMapping("/users/{userId}")
+    @DeleteMapping("/delete/{userId}")
     public String deleteUser(@PathVariable Long userId) throws Exception {
 
         userRepository.deleteById(userId);
@@ -34,7 +35,7 @@ public class UserController {
         return "User deleted successfully";
     }
 
-    @GetMapping("/users")
+    @GetMapping("/getAll")
     public List<User> getAllUser() throws Exception {
 
         List<User> users = userRepository.findAll();

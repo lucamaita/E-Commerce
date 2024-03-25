@@ -56,4 +56,16 @@ public class ProductController {
         List<Product> products = productService.findByColore(colore);
         return products;
     }
+    @GetMapping("/ricercaPrezzo/{min},{max}")
+    public List<Product> ricercaPrezzo(@PathVariable Integer min, @PathVariable Integer max) throws Exception {
+        List<Product> products = productService.ricercaPrezzo(min, max);
+        return products;
+    }
+
+    @GetMapping("/cercaNome/{nome}")
+    public List<Product> ricercaNome(@PathVariable String nome) throws Exception{
+        List<Product> products = productService.findByNome(nome);
+        return products;
+    }
+
 }

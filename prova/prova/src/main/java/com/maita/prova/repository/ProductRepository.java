@@ -10,4 +10,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findByCategoria(String categoria);
     List<Product> findByGenere(String genere);
     List<Product> findByColore(String colore);
+
+    //List<Product> ricercaPrezzo(Integer min, Integer max);
+
+    //List<Product> findByNome(String nome);
 }

@@ -16,4 +16,6 @@ public interface ProductService {
     public List<Product> findByCategoria(String categoria) throws Exception;
     public List<Product> findByGenere(String genere) throws Exception;
     public List<Product> findByColore(String colore) throws Exception;
+    public List<Product> ricercaPrezzo(Integer min, Integer max) throws Exception;
+    public List<Product> findByNome(String nome) throws Exception;
 }
