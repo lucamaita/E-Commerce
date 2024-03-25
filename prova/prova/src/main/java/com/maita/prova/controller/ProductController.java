@@ -38,4 +38,10 @@ public class ProductController {
         productService.deleteProduct(productId);
         return "Product Deleted Successfully";
     }
+
+    @GetMapping("/{categoria}")
+    public List<Product> findByCategoria(@PathVariable String categoria) throws Exception{
+        List<Product> products = productService.findByCategoria(categoria);
+        return products;
+    }
 }

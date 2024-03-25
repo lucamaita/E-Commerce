@@ -124,4 +124,16 @@ public class ProductServiceImplementation implements ProductService {
         return productRepository.findAll();
     }
 
+    @Override
+    public List<Product> findByCategoria(String categoria) throws Exception {
+        List<Product> products = productRepository.findByCategoria(categoria);
+
+        if(products.isEmpty()){
+            throw new Exception("Prodotto non trovato con Categoria: " + categoria);
+        }else{
+            return products;
+        }
+
+    }
+
 }

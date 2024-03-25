@@ -13,5 +13,5 @@ public interface ProductService {
     public void deleteProduct(Long id) throws Exception;
     public Product updateProduct(Product product, Long id) throws Exception;
     public List<Product> findAllProducts();
-
+    public List<Product> findByCategoria(String categoria) throws Exception;
 }
