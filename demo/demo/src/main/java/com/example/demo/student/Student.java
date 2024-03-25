@@ -1,13 +1,49 @@
 package com.example.demo.student;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
 // Classe Modello, contiene proprieta e metodi, rappresenta la struttura dei dati dell'applicazione
+@Entity(name = "Student") // Mappa la classe a una tabella di un db, richiede @Id
+@Table(
+        name = "student",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "student_email_unique", columnNames = "email")
+        }
+)
 public class Student {
+
+    @Id // specifica l'attributo PK
+    @SequenceGenerator(
+            name = "student_sequence",
+            sequenceName = "student_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "student_sequence"
+    )
+    @Column(
+            name = "id",
+            updatable = false
+    )
     private Long id;
+    @Column(
+            name = "name",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String name;
+    @Column(
+            name = "email",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String email;
+    @Column(name = "dob")
     private LocalDate dob;
+    @Column(name = "age", nullable = false)
     private Integer age;
 
     public Student(Long id) {
