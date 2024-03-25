@@ -4,6 +4,7 @@ import com.maita.prova.model.Product;
 
 import java.util.List;
 
+// Service: Business logic / Service Layer. Si collega ai controller.
 public interface ProductService {
 
     public Product insertProduct(Product product);

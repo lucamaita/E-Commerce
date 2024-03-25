@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping("/api/products") // RequestMapping: Mappa le richieste HTTP a specifici metodi di un controller
 public class ProductController {
 
     @Autowired

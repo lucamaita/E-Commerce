@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Service // Service indica che una classe e un componente di un servizio all'interno dell'app
 public class ProductServiceImplementation implements ProductService {
 
     @Autowired
