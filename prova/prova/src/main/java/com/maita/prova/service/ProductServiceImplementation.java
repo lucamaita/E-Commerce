@@ -133,7 +133,28 @@ public class ProductServiceImplementation implements ProductService {
         }else{
             return products;
         }
+    }
 
+    @Override
+    public List<Product> findByGenere(String genere) throws Exception {
+        List<Product> products = productRepository.findByGenere(genere);
+
+        if(products.isEmpty()){
+            throw new Exception("Prodotto non trovato per genere: " + genere);
+        }else{
+            return products;
+        }
+    }
+
+    @Override
+    public List<Product> findByColore(String colore) throws Exception {
+        List<Product> products = productRepository.findByColore(colore);
+
+        if(products.isEmpty()){
+            throw new Exception("Prodotto non trovato per colore: " + colore);
+        }else{
+            return products;
+        }
     }
 
 }

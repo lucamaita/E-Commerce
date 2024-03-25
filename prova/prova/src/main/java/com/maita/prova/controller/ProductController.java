@@ -14,34 +14,46 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @PostMapping
+    @PostMapping("/insert")
     public Product insertProduct(@RequestBody Product product){
         Product insertedProduct = productService.insertProduct(product);
         return insertedProduct;
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public Product updateProduct(@RequestBody Product product,
                                  @PathVariable Long id) throws Exception{
         Product updatedProduct = productService.updateProduct(product, id);
         return updatedProduct;
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public List<Product> getAllProducts() throws Exception {
         List<Product> products = productService.findAllProducts();
         return products;
     }
 
-    @DeleteMapping("/{productId}")
+    @DeleteMapping("/cercaId/{productId}")
     public String deleteProduct(@PathVariable Long productId) throws Exception{
         productService.deleteProduct(productId);
         return "Product Deleted Successfully";
     }
 
-    @GetMapping("/{categoria}")
+    @GetMapping("/cercaCategoria/{categoria}")
     public List<Product> findByCategoria(@PathVariable String categoria) throws Exception{
         List<Product> products = productService.findByCategoria(categoria);
+        return products;
+    }
+
+    @GetMapping("/cercaGenere/{genere}")
+     public List<Product> findByGenere(@PathVariable String genere) throws Exception {
+        List<Product> products = productService.findByGenere(genere);
+        return products;
+    }
+
+    @GetMapping("/cercaColore/{colore}")
+    public List<Product> findByColore(@PathVariable String colore) throws Exception {
+        List<Product> products = productService.findByColore(colore);
         return products;
     }
 }

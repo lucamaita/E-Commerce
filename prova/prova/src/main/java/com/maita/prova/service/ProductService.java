@@ -14,4 +14,6 @@ public interface ProductService {
     public Product updateProduct(Product product, Long id) throws Exception;
     public List<Product> findAllProducts();
     public List<Product> findByCategoria(String categoria) throws Exception;
+    public List<Product> findByGenere(String genere) throws Exception;
+    public List<Product> findByColore(String colore) throws Exception;
 }
