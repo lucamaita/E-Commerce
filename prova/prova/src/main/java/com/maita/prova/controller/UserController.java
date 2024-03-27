@@ -50,4 +50,14 @@ public class UserController {
 //        }
 //        return user;
 //    }
+
+    @GetMapping("/login/{mail}/{pw}")
+        public String login(@PathVariable String mail, @PathVariable String pw) throws Exception {
+        User user = userRepository.findByEmail(mail);
+        if (user != null && user.getPassword().equals(pw)) {
+            return "reindirizzamento alla prossima pagina";
+        } else {
+            return "L'indirizzo e-mail e la password non corrispondono. Riprova";
+        }
+    }
 }
