@@ -46,4 +46,4 @@ git clone https://github.com/lucamaita/E-Commerce
 
 4. Avvia l'applicazione Angular.
 
-Autori: [Luca Maita, Fabio Follis, Lorenzo Caiafa, Lorenzo Caiafa, Paolo Carriero, Jennifer Camicia]
+Autori: [Luca Maita, Fabio Follis, Lorenzo Caiafa, Luciano Colaneri, Paolo Carriero, Jennifer Camicia]
