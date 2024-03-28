@@ -1,0 +1,25 @@
+{
+    "nome": "nome",
+    "descrizione": "descrizione",
+    "foto": "https://example.com/foto.jpg",
+    "categoria": "Categoria",
+    "prezzo": 9.99,
+    "colore": "Giallo",
+    "taglia": "XL",
+    "genere": "F",
+    "accessorio": "false",
+    "peso": 0.1,
+    "quantita": 120
+}
+
+nome: Stringa
+descrizione: Stringa
+foto: Stringa
+categoria: Stringa (Calcio, Pallavolo, Hockey, Rugby, Tennis, Nuoto, Boxe)
+prezzo: Double (2 numeri dopo il punto)
+Colore: Stringa (Nero, Grigio, Blu, Rosso, Bianco, Verde, Viola, Rosa, Lilla, Aranacione, Giallo)
+taglia: (XS, S, M, L, XL, XXL)
+genere: (M, F, U)
+accessorio: Stringa ("true", "false")
+peso: Double
+quantita: Integer

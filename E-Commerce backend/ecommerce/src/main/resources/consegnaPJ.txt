@@ -1,0 +1,34 @@
+CONSEGNA 2: E-Commerce Sportivo
+   TRACCIA
+Il negozio di Mario Rossi e famiglia che ha bisogno di un E-commerce.
+
+La nostra famiglia gestisce una piccola attività commerciale che vende attrezzature sportive.
+Abbiamo bisogno di un sito e-commerce.
+Inizialmente ci accontentiamo anche solo della possibilità di gestire l'inventario che sarà collegato all'e-commerce.
+
+Abbiamo inizialmente bisogno di un CMS per gestire tutte le attrezzature a nostra disposizione.
+Ci sono diverse categorie sportive:
+    • Calcio
+    • Pallavolo
+    • Hockey
+    • Rugby
+    • Tennis
+    • Nuoto
+    • Boxe
+
+Ogni articolo dispone di taglie/pesi e colori diversi.
+Uno stesso articolo potrebbe essere disponibile in più colori/taglie.
+
+Devo gestire anche il quantitativo presente in magazzino che è diversificato
+per ogni taglia/colore
+
+Riassumendo, di un articolo voglio le seguenti informazioni da gestire:
+nome
+una o più foto (bonus)
+codice articolo
+categoria
+prezzo
+colore
+taglia
+peso
+quantità
