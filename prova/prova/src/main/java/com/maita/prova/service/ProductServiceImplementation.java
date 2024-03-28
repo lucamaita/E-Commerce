@@ -1,7 +1,8 @@
 package com.maita.prova.service;
 
-import com.maita.prova.model.Product;
+import com.maita.prova.model.User;
 import com.maita.prova.repository.ProductRepository;
+import com.maita.prova.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,10 +23,18 @@ public class ProductServiceImplementation implements ProductService {
 
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private UserService userService;
 
 
     @Override
-    public Product insertProduct(Product product) {
+    public Product insertProduct(Product product, String jwt) throws Exception {
+
+        User u = userService.findUserByJwt(jwt);
+
+        if (!u.getRole().equals(User.Role.ADMIN)){
+            throw new Exception("ADMIN PRIVILEGES REQUIRED");
+        }
 
         Product insertedProduct = new Product();
         insertedProduct.setNome(product.getNome());
@@ -70,13 +79,25 @@ public class ProductServiceImplementation implements ProductService {
     }
 
     @Override
-    public void deleteProduct(Long id) throws Exception {
-        findProductById(id);
+    public void deleteProduct(Long id, String jwt) throws Exception {
+
+        User u = userService.findUserByJwt(jwt);
+
+        if (!u.getRole().equals(User.Role.ADMIN)){
+            throw new Exception("ADMIN PRIVILEGES REQUIRED");
+        }
         productRepository.deleteById(id);
     }
 
     @Override
-    public Product updateProduct(Product product, Long id) throws Exception {
+    public Product updateProduct(Product product, Long id, String jwt) throws Exception {
+
+        User u = userService.findUserByJwt(jwt);
+
+        if (!u.getRole().equals(User.Role.ADMIN)){
+            throw new Exception("ADMIN PRIVILEGES REQUIRED");
+        }
+
         Product oldProduct = findProductById(id);
 
         if(product.getNome()!=null){

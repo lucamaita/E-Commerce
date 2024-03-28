@@ -9,6 +9,12 @@ import lombok.Setter;
 @Setter
 @Entity // Mappa la classe a una tabella di un db, richiede @Id
 public class User {
+
+    public enum Role {
+        ADMIN,
+        GUEST
+    }
+
     @Id // specifica l'attributo PK
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -16,5 +22,6 @@ public class User {
     @Column(unique = true)
     private String email;
     private String fullName;
-    private String ruolo;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }

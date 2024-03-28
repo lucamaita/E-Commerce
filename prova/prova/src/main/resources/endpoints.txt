@@ -1,0 +1,31 @@
+Endpoints:
+	
+Tutti gli endpoint che iniziano in /api richiedono autenticazione(minimo GUEST).
+
+	
+
+SIGNUP/SIGNIN
+ - SignUp: 		/auth/signup
+ - SignIn: 		/auth/signin
+
+USER
+ - getAll(non usare?): 		/api/users/allUsers
+ - currentUserInfo: 		/api/users/profile
+ - delete(solo il proprio):	/api/users/{id}
+
+PRODUCTS
+ - Create(ADMIN): 	/api/products/insert
+ - Update(ADMIN): 	/api/products/update/{id}
+ - GetAllProducts:	/products/getAll
+ - Delete(ADMIN):	/api/products/delete/{id}
+ - CercaCategoria:	/products/findBy/{categoria}
+ - CercaGenere:		/products/findBy/{genere}
+ - CercaColore:		/products/findBy/{colore}
+ - CercaPrezzo:		/products/findBy/{min},{max}
+ - CercaNome:		/products/findBy/{nome}
+
+ORDINI (/api/orders)
+ - GetAll(ADMIN):	/findAll
+ - Insert:		/insert/{userId}/{productId}
+ - Delete(ADMIN):	/delete/{orderId}
+ - Update(non usare?): 	/update/{id}

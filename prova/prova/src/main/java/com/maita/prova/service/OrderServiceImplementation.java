@@ -1,9 +1,9 @@
 package com.maita.prova.service;
 
-import com.maita.prova.model.Ordine;
-import com.maita.prova.model.Product;
 import com.maita.prova.model.User;
 import com.maita.prova.repository.OrderRepository;
+import com.maita.prova.model.Ordine;
+import com.maita.prova.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +15,18 @@ public class OrderServiceImplementation implements OrderService{
 
     @Autowired
     private OrderRepository orderRepository;
+    @Autowired
+    private UserService userService;
 
     @Override
-    public List<Ordine> findAll() {
+    public List<Ordine> findAll(String jwt) throws Exception {
+
+        User u = userService.findUserByJwt(jwt);
+
+        if (!u.getRole().equals(User.Role.ADMIN)){
+            throw new Exception("ADMIN PRIVILEGES REQUIRED");
+        }
+
         return orderRepository.findAll();
     }
 
@@ -43,8 +52,13 @@ public class OrderServiceImplementation implements OrderService{
     }
 
     @Override
-    public void deleteOrder(Long id) throws Exception {
-        findOrderById(id);
+    public void deleteOrder(Long id, String jwt) throws Exception {
+
+        User u = userService.findUserByJwt(jwt);
+
+        if (!u.getRole().equals(User.Role.ADMIN)){
+            throw new Exception("ADMIN PRIVILEGES REQUIRED");
+        }
         orderRepository.deleteById(id);
     }
 
