@@ -22,5 +22,7 @@ public class Ordine {
     @JoinColumn(name = "fk_user", nullable = false)
     private User user;
 
+    private String stato;
+
     private Double prezzo;
 }

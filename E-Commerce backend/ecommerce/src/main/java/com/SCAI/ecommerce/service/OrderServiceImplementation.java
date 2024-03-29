@@ -37,6 +37,7 @@ public class OrderServiceImplementation implements OrderService{
         insertedOrdine.setProduct(product);
         insertedOrdine.setQuantita(ordine.getQuantita());
         insertedOrdine.setPrezzo(product.getPrezzo() * ordine.getQuantita());
+        insertedOrdine.setStato(ordine.getStato());
         return orderRepository.save(insertedOrdine);
     }
 
@@ -78,6 +79,9 @@ public class OrderServiceImplementation implements OrderService{
         }
         if(ordine.getPrezzo()!=null){
             oldOrdine.setPrezzo(ordine.getPrezzo());
+        }
+        if(ordine.getStato()!=null){
+            oldOrdine.setStato(ordine.getStato());
         }
         return orderRepository.save(oldOrdine);
     }
