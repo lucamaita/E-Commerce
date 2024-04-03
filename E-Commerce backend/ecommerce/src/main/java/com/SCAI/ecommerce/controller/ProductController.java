@@ -63,6 +63,7 @@ public class ProductController {
         List<Product> products = productService.findByColore(colore);
         return products;
     }
+
     @GetMapping("/products/findBy/{min},{max}")
     public List<Product> ricercaPrezzo(@PathVariable Integer min, @PathVariable Integer max) throws Exception {
         List<Product> products = productService.ricercaPrezzo(min, max);
@@ -72,6 +73,12 @@ public class ProductController {
     @GetMapping("/products/findBy/{nome}")
     public List<Product> ricercaNome(@PathVariable String nome) throws Exception{
         List<Product> products = productService.findByNome(nome);
+        return products;
+    }
+
+    @GetMapping("/products/findByAccessorio/{accessorio}")
+    public List<Product> ricercaAccessorio(@PathVariable String accessorio) throws Exception{
+        List<Product> products = productService.findByAccessorio(accessorio);
         return products;
     }
 

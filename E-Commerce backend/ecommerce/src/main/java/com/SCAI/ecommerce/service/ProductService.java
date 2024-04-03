@@ -28,4 +28,6 @@ public interface ProductService {
     public List<Product> findByColore(String colore) throws Exception;
     public List<Product> ricercaPrezzo(Integer min, Integer max) throws Exception;
     public List<Product> findByNome(String nome) throws Exception;
+
+    public List<Product> findByAccessorio(String accessorio) throws Exception;
 }

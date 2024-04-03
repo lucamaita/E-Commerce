@@ -223,4 +223,15 @@ public class ProductServiceImplementation implements ProductService {
         return corrispondenze;
     }
 
+    @Override
+    public List<Product> findByAccessorio(String accessorio) throws Exception {
+        List<Product> products = productRepository.findByAccessorio(accessorio);
+
+        if(products.isEmpty()){
+            throw new Exception("Prodotto non trovato per colore: " + accessorio);
+        }else{
+            return products;
+        }
+    }
+
 }
