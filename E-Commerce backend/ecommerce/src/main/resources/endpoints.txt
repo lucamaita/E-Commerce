@@ -18,11 +18,12 @@ PRODUCTS
  - Update(ADMIN): 	/api/products/update/{id}
  - GetAllProducts:	/products/getAll
  - Delete(ADMIN):	/api/products/delete/{id}
- - CercaCategoria:	/products/findBy/{categoria}
- - CercaGenere:		/products/findBy/{genere}
- - CercaColore:		/products/findBy/{colore}
- - CercaPrezzo:		/products/findBy/{min},{max}
- - CercaNome:		/products/findBy/{nome}
+ - CercaCategoria:	/products/findByCategoria/{categoria}
+ - CercaGenere:		/products/findByGenere/{genere}
+ - CercaColore:		/products/findByColore/{colore}
+ - CercaPrezzo:		/products/findByPrezzo/{min},{max}
+ - CercaNome:		/products/findByNome/{nome}
+ - CercaAccessorio: /products/findByAccessorio/{accessorio}
 
 ORDINI (/api/orders)
  - GetAll(ADMIN):	/findAll

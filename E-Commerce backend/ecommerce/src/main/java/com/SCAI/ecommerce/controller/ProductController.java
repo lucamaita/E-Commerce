@@ -46,31 +46,31 @@ public class ProductController {
             return "Product Deleted Successfully";
     }
 
-    @GetMapping("/products/findBy/{categoria}")
+    @GetMapping("/products/findByCategoria/{categoria}")
     public List<Product> findByCategoria(@PathVariable String categoria) throws Exception{
         List<Product> products = productService.findByCategoria(categoria);
         return products;
     }
 
-    @GetMapping("/products/findBy/{genere}")
+    @GetMapping("/products/findByGenere/{genere}")
      public List<Product> findByGenere(@PathVariable String genere) throws Exception {
         List<Product> products = productService.findByGenere(genere);
         return products;
     }
 
-    @GetMapping("/products/findBy/{colore}")
+    @GetMapping("/products/findByColore/{colore}")
     public List<Product> findByColore(@PathVariable String colore) throws Exception {
         List<Product> products = productService.findByColore(colore);
         return products;
     }
 
-    @GetMapping("/products/findBy/{min},{max}")
+    @GetMapping("/products/findByPrezzo/{min},{max}")
     public List<Product> ricercaPrezzo(@PathVariable Integer min, @PathVariable Integer max) throws Exception {
         List<Product> products = productService.ricercaPrezzo(min, max);
         return products;
     }
 
-    @GetMapping("/products/findBy/{nome}")
+    @GetMapping("/products/findByNome/{nome}")
     public List<Product> ricercaNome(@PathVariable String nome) throws Exception{
         List<Product> products = productService.findByNome(nome);
         return products;
