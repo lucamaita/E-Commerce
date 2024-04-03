@@ -28,11 +28,11 @@ public class OrderController {
         return ordines;
     }
 
-    @PostMapping("/insert/{userId}/{productId}")
+    @PostMapping("/insert/{productId}")
     public Ordine insertOrder(@RequestBody Ordine ordine,
-                              @PathVariable Long userId,
-                              @PathVariable Long productId) throws Exception{
-        User user = userService.findUserById(userId);
+                              @PathVariable Long productId,
+                              @RequestHeader("Authorization") String jwt) throws Exception{
+        User user = userService.findUserByJwt(jwt);
         Product product = productService.findProductById(productId);
         Ordine insertedOrdine = orderService.insertOrder(ordine, user, product);
         return insertedOrdine;
