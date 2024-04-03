@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+// ProductController: gestisce le operazioni CRUD e le ricerche sui prodotti in un'applicazione di e-commerce.
 @RestController
 @RequestMapping // RequestMapping: Mappa le richieste HTTP a specifici metodi di un controller
 public class ProductController {

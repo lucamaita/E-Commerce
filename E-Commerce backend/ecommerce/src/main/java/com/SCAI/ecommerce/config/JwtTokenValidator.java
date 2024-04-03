@@ -17,6 +17,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+// Il codice definisce un filtro per la convalida del token JWT e l'assegnazione dell'autenticazione corrispondente.
 public class JwtTokenValidator extends OncePerRequestFilter{
 
     private SecretKey key = Keys.hmacShaKeyFor(JwtConstant.JWT_SECRET.getBytes());

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
 import java.util.Date;
-
+// Il codice definisce un provider per la creazione e l'estrazione di token JWT utilizzando la libreria io.jsonwebtoken.
 @Service
 public class JwtProvider {
 

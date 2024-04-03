@@ -10,6 +10,16 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+// Questo blocco di codice implementa ProductService,
+// fornendo la logica di business per la gestione dei prodotti.
+// La classe ProductServiceImplementation utilizza ProductRepository per interagire con il database
+// e UserService per gestire le autorizzazioni basate sui ruoli degli utenti.
+// Include metodi per inserire, trovare, eliminare e aggiornare prodotti,
+// oltre a metodi per cercare prodotti basati su categoria, genere, colore, prezzo e nome.
+// La generazione del codice articolo unico per ogni prodotto viene gestita tramite codiceGenerator,
+// che combina caratteristiche del prodotto con un contatore incrementale.
+// L'accesso a molte di queste funzionalità è limitato agli utenti con ruolo di amministratore,
+// come indicato dalla verifica del ruolo nell'inserimento, eliminazione e aggiornamento dei prodotti.
 
 @Service // Service indica che una classe e un componente di un servizio all'interno dell'app
 public class ProductServiceImplementation implements ProductService {

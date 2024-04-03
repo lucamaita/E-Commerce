@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+// Il codice definisce una classe InitialDataLoader che implementa l'interfaccia CommandLineRunner
+// e viene eseguita al lancio dell'applicazione.
+// All'interno del metodo run, controlla se nel repository degli utenti non esiste già un amministratore,
+// e in caso contrario crea un nuovo utente amministratore predefinito e lo salva nel repository.
 @Component
 public class InitialDataLoader implements CommandLineRunner {
 

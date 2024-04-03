@@ -15,6 +15,22 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
 import java.util.Collections;
+// SecurityFilterChain: Definisce la catena di filtri di sicurezza personalizzata per l'applicazione.
+//  Utilizza HttpSecurity per configurare la gestione delle sessioni come stateless,
+//  il che è tipico per le API REST che utilizzano token per l'autenticazione invece di sessioni.
+//  Specifica che le richieste agli endpoint sotto /api/** richiedono autenticazione,
+//  mentre tutte le altre richieste sono permesse.
+//  Inoltre, disabilita il CSRF (Cross-Site Request Forgery) per evitare attacchi, dato che l'applicazione è stateless,
+//  e configura il CORS per permettere richieste da qualsiasi origine.
+//  Infine, aggiunge un filtro personalizzato (JwtTokenValidator) prima del filtro di autenticazione di base per validare i token JWT.
+
+// CorsConfigurationSource: Fornisce una configurazione CORS personalizzata che permette richieste da qualsiasi origine (*),
+// con qualsiasi metodo HTTP e header. Questo è utile per consentire alle applicazioni client, c
+// he potrebbero essere ospitate su domini diversi, di interagire con l'API.
+
+// PasswordEncoder: Definisce un bean per l'encoding delle password utilizzando BCryptPasswordEncoder.
+// Questo encoder è comunemente usato per la sua forza crittografica e per il fatto che include un sale automaticamente,
+// rendendo ogni hash unico anche per password uguali.
 
 @Configuration
 public class AppConfig {

@@ -17,6 +17,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+// AuthController offre due endpoint principali: /signup e /signin,
+// che permettono rispettivamente la registrazione e l'accesso degli utenti.
+// AuthController facilita la registrazione e l'accesso degli utenti nell'applicazione,
+// gestendo la creazione di nuovi account, l'autenticazione delle credenziali
+// e la generazione di token JWT per gli utenti autenticati. Utilizza servizi ausiliari come
+// UserRepository, CustomUserDetailsService, JwtProvider e PasswordEncoder
+// per eseguire queste operazioni in modo sicuro e efficiente.
 @RestController
 @RequestMapping("/auth")
 public class AuthController {

@@ -5,7 +5,7 @@ import com.SCAI.ecommerce.model.Product;
 import com.SCAI.ecommerce.model.User;
 
 import java.util.List;
-
+//Vedi commento in ProductService
 public interface OrderService {
 
     public List<Ordine> findAll(String jwt) throws Exception;

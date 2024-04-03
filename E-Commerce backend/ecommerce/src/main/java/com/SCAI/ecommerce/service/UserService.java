@@ -3,7 +3,7 @@ package com.SCAI.ecommerce.service;
 import com.SCAI.ecommerce.model.User;
 
 import java.util.List;
-
+//Vedi commmento in ProductService
 public interface UserService {
 
     public User findUserById(Long userId) throws Exception;

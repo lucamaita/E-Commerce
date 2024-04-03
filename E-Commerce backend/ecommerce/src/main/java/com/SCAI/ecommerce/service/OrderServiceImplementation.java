@@ -9,7 +9,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+// Questo blocco di codice definisce OrderServiceImplementation, una classe che implementa l'interfaccia OrderService
+// per gestire le operazioni relative agli ordini. La classe utilizza OrderRepository per interagire con il database degli ordini
+// e UserService per gestire le autorizzazioni degli utenti.
+// La classe è annotata con @Service, indicando che è un componente del livello di servizio dell'applicazione,
+// responsabile per la logica di business. Gli oggetti OrderRepository e UserService sono iniettati tramite @Autowired,
+// permettendo l'accesso ai metodi definiti in queste classi senza la necessità di istanziarli direttamente.
 @Service
 public class OrderServiceImplementation implements OrderService{
 

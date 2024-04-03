@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+// OrderController: un controller che gestisce le richieste CRUD (Create, Read, Update, Delete) per gli ordini.
 @RestController
 @RequestMapping("/api/orders")
 public class OrderController {

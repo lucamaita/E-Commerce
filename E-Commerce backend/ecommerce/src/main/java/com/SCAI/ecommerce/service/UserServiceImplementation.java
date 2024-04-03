@@ -8,7 +8,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+// Questo blocco di codice definisce UserServiceImplementation, una classe che implementa l'interfaccia UserService
+// per fornire servizi legati alla gestione degli utenti.
+// La classe utilizza UserRepository per interagire con il database degli utenti
+// e JwtProvider per gestire le operazioni legate ai token JWT.
+// La classe è annotata con @Service, indicando che è un componente del livello di servizio dell'applicazione,
+// responsabile per la logica di business. Gli oggetti UserRepository e JwtProvider sono iniettati tramite @Autowired,
+// permettendo l'accesso ai metodi definiti in queste classi senza la necessità di istanziarli direttamente.
 @Service
 public class UserServiceImplementation implements UserService{
 
