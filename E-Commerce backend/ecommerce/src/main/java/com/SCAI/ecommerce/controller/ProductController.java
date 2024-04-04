@@ -1,12 +1,17 @@
 package com.SCAI.ecommerce.controller;
 
 import com.SCAI.ecommerce.model.Product;
+import com.SCAI.ecommerce.model.ProductAggregate;
 import com.SCAI.ecommerce.service.ProductService;
 import com.SCAI.ecommerce.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 // ProductController: gestisce le operazioni CRUD e le ricerche sui prodotti in un'applicazione di e-commerce.
 @RestController
 @RequestMapping // RequestMapping: Mappa le richieste HTTP a specifici metodi di un controller
@@ -36,6 +41,32 @@ public class ProductController {
     public List<Product> getAllProducts() throws Exception {
         List<Product> products = productService.findAllProducts();
         return products;
+    }
+
+    @GetMapping("/products/getAllFe")
+    public List<ProductAggregate> getAllProductsAggregated() throws Exception {
+        List<Product> products = productService.findAllProducts();
+
+        // Mappa per tenere traccia dei prodotti aggregati per nome, descrizione, foto, prezzo, ecc.
+        Map<String, ProductAggregate> aggregatedProducts = new HashMap<>();
+
+        for (Product product : products) {
+            // Costruire la chiave per la mappa utilizzando le proprietà comuni del prodotto
+            String key = product.getNome() + "-" + product.getDescrizione() + "-" + product.getFoto() + "-" + product.getPrezzo();
+
+            // Se il prodotto con la stessa chiave esiste già nella mappa, aggiungi le taglie e colori del prodotto corrente
+            if (aggregatedProducts.containsKey(key)) {
+                ProductAggregate aggregatedProduct = aggregatedProducts.get(key);
+                aggregatedProduct.addVariant(product.getTaglia(), product.getColore());
+            } else {
+                // Altrimenti, aggiungi un nuovo prodotto aggregato alla mappa
+                ProductAggregate newAggregatedProduct = new ProductAggregate(product);
+                aggregatedProducts.put(key, newAggregatedProduct);
+            }
+        }
+
+        // Restituisci solo i valori della mappa, che saranno i prodotti aggregati
+        return new ArrayList<>(aggregatedProducts.values());
     }
 
     @DeleteMapping("/api/products/delete/{productId}")
@@ -83,3 +114,5 @@ public class ProductController {
     }
 
 }
+
+
