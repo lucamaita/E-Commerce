@@ -70,6 +70,39 @@ public class ProductController {
         return new ArrayList<>(aggregatedProducts.values());
     }
 
+    @GetMapping("/products/getAllFe/{gender}")
+    public List<ProductAggregate> getAllProductsByGender(@PathVariable String gender) throws Exception {
+        List<Product> products = productService.findAllProducts();
+
+        // Mappa per tenere traccia dei prodotti aggregati per nome e descrizione
+        Map<String, ProductAggregate> aggregatedProducts = new HashMap<>();
+
+        for (Product product : products) {
+            // Filtra i prodotti per genere
+            if (!gender.equalsIgnoreCase(product.getGenere())) {
+                continue; // Salta il resto delle iterazioni se il genere non corrisponde
+            }
+
+            // Costruire la chiave per la mappa utilizzando solo nome e descrizione del prodotto
+            String key = product.getNome() + "-" + product.getDescrizione();
+
+            // Se il prodotto con la stessa chiave esiste già nella mappa, aggiungi le taglie e colori del prodotto corrente
+            if (aggregatedProducts.containsKey(key)) {
+                ProductAggregate aggregatedProduct = aggregatedProducts.get(key);
+                aggregatedProduct.addTaglie(product.getTaglia());
+                aggregatedProduct.addColore(product.getColore());
+            } else {
+                // Altrimenti, aggiungi un nuovo prodotto aggregato alla mappa
+                ProductAggregate newAggregatedProduct = new ProductAggregate(product);
+                aggregatedProducts.put(key, newAggregatedProduct);
+            }
+        }
+
+        // Restituisci solo i valori della mappa, che saranno i prodotti aggregati
+        return new ArrayList<>(aggregatedProducts.values());
+    }
+
+
     @DeleteMapping("/api/products/delete/{productId}")
     public String deleteProduct(@PathVariable Long productId,
                                 @RequestHeader("Authorization") String jwt)throws Exception{
