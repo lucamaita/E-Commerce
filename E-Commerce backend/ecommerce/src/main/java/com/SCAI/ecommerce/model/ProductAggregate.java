@@ -14,6 +14,8 @@ public class ProductAggregate {
     private double prezzo;
     private List<String> taglie;
     private List<String> colori;
+    private String genere;
+    private String accessorio;
 
     public ProductAggregate(Product product) {
         this.nome = product.getNome();
@@ -22,13 +24,31 @@ public class ProductAggregate {
         this.prezzo = product.getPrezzo();
         this.taglie = new ArrayList<>();
         this.colori = new ArrayList<>();
-        this.taglie.add(product.getTaglia());
-        this.colori.add(product.getColore());
+        this.genere = product.getGenere();
+        this.accessorio = product.getAccessorio(); // Converti booleano in stringa
+
+        // Aggiungi taglia solo se non è già presente nella lista
+        if (!this.taglie.contains(product.getTaglia())) {
+            this.taglie.add(product.getTaglia());
+        }
+
+        // Aggiungi colore solo se non è già presente nella lista
+        if (!this.colori.contains(product.getColore())) {
+            this.colori.add(product.getColore());
+        }
     }
 
-    public void addVariant(String taglia, String colore) {
-        this.taglie.add(taglia);
-        this.colori.add(colore);
+    public void addTaglie(String taglia) {
+        if (!this.taglie.contains(taglia)) {
+            this.taglie.add(taglia);
+        }
     }
 
+    public void addColore(String colore) {
+        if (!this.colori.contains(colore)) {
+            this.colori.add(colore);
+        }
+    }
+
+    // Getters and setters for other properties (nome, descrizione, foto, prezzo, genere, accessorio)
 }
