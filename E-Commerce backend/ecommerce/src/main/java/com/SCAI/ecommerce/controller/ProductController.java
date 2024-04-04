@@ -1,7 +1,7 @@
 package com.SCAI.ecommerce.controller;
 
 import com.SCAI.ecommerce.model.Product;
-import com.SCAI.ecommerce.model.ProductAggregate;
+import com.SCAI.ecommerce.model.ProdottiAggregati;
 import com.SCAI.ecommerce.service.ProductService;
 import com.SCAI.ecommerce.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,61 +44,50 @@ public class ProductController {
     }
 
     @GetMapping("/products/getAllFe")
-    public List<ProductAggregate> getAllProductsAggregated() throws Exception {
+    public List<ProdottiAggregati> getAllProductsAggregated() throws Exception {
         List<Product> products = productService.findAllProducts();
 
-        // Mappa per tenere traccia dei prodotti aggregati per nome e descrizione
-        Map<String, ProductAggregate> aggregatedProducts = new HashMap<>();
+        Map<String, ProdottiAggregati> aggregatedProducts = new HashMap<>();
 
         for (Product product : products) {
-            // Costruire la chiave per la mappa utilizzando solo nome e descrizione del prodotto
             String key = product.getNome() + "-" + product.getDescrizione();
 
-            // Se il prodotto con la stessa chiave esiste già nella mappa, aggiungi le taglie e colori del prodotto corrente
             if (aggregatedProducts.containsKey(key)) {
-                ProductAggregate aggregatedProduct = aggregatedProducts.get(key);
+                ProdottiAggregati aggregatedProduct = aggregatedProducts.get(key);
                 aggregatedProduct.addTaglie(product.getTaglia());
                 aggregatedProduct.addColore(product.getColore());
             } else {
-                // Altrimenti, aggiungi un nuovo prodotto aggregato alla mappa
-                ProductAggregate newAggregatedProduct = new ProductAggregate(product);
+                ProdottiAggregati newAggregatedProduct = new ProdottiAggregati(product);
                 aggregatedProducts.put(key, newAggregatedProduct);
             }
         }
 
-        // Restituisci solo i valori della mappa, che saranno i prodotti aggregati
         return new ArrayList<>(aggregatedProducts.values());
     }
 
     @GetMapping("/products/getAllFe/{gender}")
-    public List<ProductAggregate> getAllProductsByGender(@PathVariable String gender) throws Exception {
+    public List<ProdottiAggregati> getAllProductsByGender(@PathVariable String gender) throws Exception {
         List<Product> products = productService.findAllProducts();
 
-        // Mappa per tenere traccia dei prodotti aggregati per nome e descrizione
-        Map<String, ProductAggregate> aggregatedProducts = new HashMap<>();
+        Map<String, ProdottiAggregati> aggregatedProducts = new HashMap<>();
 
         for (Product product : products) {
-            // Filtra i prodotti per genere
             if (!gender.equalsIgnoreCase(product.getGenere())) {
-                continue; // Salta il resto delle iterazioni se il genere non corrisponde
+                continue;
             }
 
-            // Costruire la chiave per la mappa utilizzando solo nome e descrizione del prodotto
             String key = product.getNome() + "-" + product.getDescrizione();
 
-            // Se il prodotto con la stessa chiave esiste già nella mappa, aggiungi le taglie e colori del prodotto corrente
             if (aggregatedProducts.containsKey(key)) {
-                ProductAggregate aggregatedProduct = aggregatedProducts.get(key);
+                ProdottiAggregati aggregatedProduct = aggregatedProducts.get(key);
                 aggregatedProduct.addTaglie(product.getTaglia());
                 aggregatedProduct.addColore(product.getColore());
             } else {
-                // Altrimenti, aggiungi un nuovo prodotto aggregato alla mappa
-                ProductAggregate newAggregatedProduct = new ProductAggregate(product);
+                ProdottiAggregati newAggregatedProduct = new ProdottiAggregati(product);
                 aggregatedProducts.put(key, newAggregatedProduct);
             }
         }
 
-        // Restituisci solo i valori della mappa, che saranno i prodotti aggregati
         return new ArrayList<>(aggregatedProducts.values());
     }
 
