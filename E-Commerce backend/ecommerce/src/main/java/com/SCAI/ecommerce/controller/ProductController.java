@@ -91,6 +91,32 @@ public class ProductController {
         return new ArrayList<>(aggregatedProducts.values());
     }
 
+    @GetMapping("/products/getAllFe/{gender}/{categoria}")
+    public List<ProdottiAggregati> getAllProductsByGender(@PathVariable String gender, @PathVariable String categoria) throws Exception {
+        List<Product> products = productService.findAllProducts();
+
+        Map<String, ProdottiAggregati> aggregatedProducts = new HashMap<>();
+
+        for (Product product : products) {
+            if (!gender.equalsIgnoreCase(product.getGenere()) || !categoria.equalsIgnoreCase(product.getCategoria())) {
+                continue;
+            }
+
+            String key = product.getNome() + "-" + product.getDescrizione();
+
+            if (aggregatedProducts.containsKey(key)) {
+                ProdottiAggregati aggregatedProduct = aggregatedProducts.get(key);
+                aggregatedProduct.addTaglie(product.getTaglia());
+                aggregatedProduct.addColore(product.getColore());
+            } else {
+                ProdottiAggregati newAggregatedProduct = new ProdottiAggregati(product);
+                aggregatedProducts.put(key, newAggregatedProduct);
+            }
+        }
+
+        return new ArrayList<>(aggregatedProducts.values());
+    }
+
 
     @DeleteMapping("/api/products/delete/{productId}")
     public String deleteProduct(@PathVariable Long productId,

@@ -19,6 +19,7 @@ public class ProdottiAggregati {
     private List<String> colori;
     private String genere;
     private String accessorio;
+    private String categoria;
 
     // Abbiamo convertito i colori in esadecimale per facilitare
     // la graficazione lato frontend
@@ -47,6 +48,7 @@ public class ProdottiAggregati {
         this.colori = new ArrayList<>();
         this.genere = product.getGenere();
         this.accessorio = product.getAccessorio();
+        this.categoria = product.getCategoria();
 
         if (product.getTaglia() != null && !product.getTaglia().isEmpty()) {
             if (!this.taglie.contains(product.getTaglia())) {
