@@ -1,0 +1,40 @@
+<button
+  class="btn-news"
+  (click)="navigateToOther()"
+  (mouseenter)="showComponent()"
+  (mouseleave)="hideComponent($event)"
+>
+  Notizie in evidenza
+</button>
+<button
+  class="btn-uomo"
+  (click)="funzioneProvaGet()"
+  (mouseenter)="showComponent()"
+  (mouseleave)="hideComponent($event)"
+>
+  Uomo
+</button>
+<button
+  class="btn-donna"
+  (click)="navigateToDonna('/shop')"
+  (mouseenter)="showComponent()"
+  (mouseleave)="hideComponent($event)"
+>
+  Donna
+</button>
+<button
+  class="btn-accessori"
+  (click)="navigateToDonna('/home')"
+  (mouseenter)="showComponent()"
+  (mouseleave)="hideComponent($event)"
+>
+  Accessori
+</button>
+
+<div
+  *ngIf="isShowable"
+  (mouseenter)="showComponent()"
+  (mouseleave)="hideComponent($event)"
+>
+  <header-drop-down-menu />
+</div>

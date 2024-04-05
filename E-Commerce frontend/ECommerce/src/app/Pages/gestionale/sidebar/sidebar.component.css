@@ -1,0 +1,75 @@
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    /* left: -250px; */
+    bottom: 0;
+    background-color: #013a63;
+    /* transition: left 0.3s ease; */
+    z-index: 1000;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    height: calc(100vh - 129px);
+    margin-top: 150px;
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+    padding: 20px 0;
+  }
+
+  .sidebar ul li a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .sidebar ul li a:hover {
+    background-color: #0275d8;
+  }
+
+  /* Stili aggiuntivi per il tema scuro */
+  .dark-theme {
+    background-color: #333;
+    color: #ffffff;
+  }
+
+  .dark-theme input[type="password"], .dark-theme select, .dark-theme input[type="submit"] {
+    background-color: #555;
+    color: #ffffff;
+  }
+
+  .light-theme {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .dark-theme {
+    background-color: #333333;
+    color: #ffffff;
+  }
+
+
+  .sidebar .mat-icon-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff; /* Cambia a seconda del tuo tema */
+  }
+  
+  .sidebar.active {
+    /* Quando la sidebar ha la classe `active`, viene mostrata */
+    transform: translateX(0);
+  }
+
+  #sidebar-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    margin-left: 10px;
+  }

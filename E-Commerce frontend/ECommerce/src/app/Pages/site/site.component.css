@@ -1,0 +1,40 @@
+.siteHeaderWrapper {
+  height: 100vh;
+}
+
+.siteWallpaper {
+  width: 100%;
+}
+
+.ciccio img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.ciccio {
+  height: calc(100vh - 120px);
+
+}
+
+
+.carousel {
+  overflow: hidden;
+}
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-images img {
+  width: 100%;
+  height: auto;
+}
+
+
+.arousel-images img {
+  height: 100%;
+  width: 100%;
+  /* object-fit: cover;  */
+}

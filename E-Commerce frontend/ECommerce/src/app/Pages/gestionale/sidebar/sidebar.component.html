@@ -1,0 +1,14 @@
+<nav class="sidebar" [class.active]="isActive">
+  <ul>
+    <button mat-icon-button (click)="closeNav()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <li><a routerLink="/gestionale/prodotti">Prodotti</a></li>
+    <li><a routerLink="/gestionale/impostazioni">Impostazioni</a></li>
+    <li><a routerLink="/gestionale/ordini">Ordini</a></li>
+    <!-- <li class="theme-toggle">
+        <a href="#" (click)="toggleTheme()" *ngIf="!isDarkTheme"><i class="far fa-moon"></i></a>
+        <a href="#" (click)="toggleTheme()" *ngIf="isDarkTheme"><i class="far fa-sun"></i></a>
+    </li> -->
+  </ul>
+</nav>

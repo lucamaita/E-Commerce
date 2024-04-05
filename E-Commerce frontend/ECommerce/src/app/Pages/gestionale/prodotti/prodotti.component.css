@@ -1,0 +1,458 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #005792;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Stili unificati per i bottoni */
+#add-product-btn, #filter-low-stock-btn {
+  background-color: #4CAF50; /* Verde vivace */
+  color: white;
+  padding: 10px 20px; /* Uniforma lo spazio interno */
+  font-size: 16px; /* Dimensione del testo */
+  border: none;
+  cursor: pointer;
+  margin-bottom: 18px; /* Distanza uniforme */
+  transition: background-color 0.3s, box-shadow 0.2s; /* Transizione fluida */
+  border-radius: 5px; /* Bordi arrotondati */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Ombreggiatura leggera */
+}
+
+#add-product-btn:hover, #filter-low-stock-btn:hover {
+  background-color: #45a049; /* Un verde leggermente più scuro per l'hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ombreggiatura più pronunciata */
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+  background-color: #ddd;
+}
+
+.main-content {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="password"], select {
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+}
+
+input[type="submit"] {
+  background-color: #005792;
+  color: #ffffff;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #003d5b;
+}
+
+/* Reset di base per rimuovere margini e padding predefiniti */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #003d5b;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 24px;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #003d5b;
+  padding: 20px 10px;
+  transition: transform 0.3s ease;
+  transform: translateX(-100%);
+}
+
+.sidebar.active {
+  transform: translateX(0);
+}
+
+.sidebar ul {
+  list-style-type: none;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  padding: 10px;
+}
+
+.main-content {
+  margin-left: 220px;
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #005792;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+form {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="password"],
+select,
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box; /* Aggiunge il padding all'interno della larghezza definita */
+}
+
+input[type="submit"] {
+  background-color: #0abd19;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #0275d8;
+}
+
+/* Stili aggiuntivi per il tema scuro, se già implementato */
+.dark-theme form {
+  background-color: #333;
+  color: #ffffff;
+}
+
+.dark-theme input[type="password"],
+.dark-theme select,
+.dark-theme input[type="submit"] {
+  background-color: #555;
+  color: #ffffff;
+  border-color: #444;
+}
+
+.dark-theme input[type="submit"] {
+  background-color: #013a63;
+}
+
+.dark-theme input[type="submit"]:hover {
+  background-color: #0275d8;
+}
+.dark-theme {
+  background-color: #333;
+  color: #ffffff;
+}
+
+.dark-theme header {
+  background-color: #013a63;
+}
+
+.dark-theme .sidebar {
+  background-color: #022b45;
+}
+
+.dark-theme a {
+  color: #9dcfff;
+}
+
+#sales-chart {
+  width: 50px; /* Larghezza desiderata */
+  height: 50px; /* Altezza desiderata */
+  max-width: 70%; /* Assicura che non superi la larghezza del contenitore */
+}
+.action-buttons button {
+  background-color: #00ff15; /* Colore di sfondo blu */
+  border: none; /* Nessun bordo */
+  color: white; /* Testo bianco */
+  padding: 10px 15px; /* Spaziatura interna */
+  text-align: center; /* Testo centrato */
+  text-decoration: none; /* Nessuna sottolineatura del testo */
+  display: inline-block; /* Display inline-block */
+  font-size: 16px; /* Dimensione del testo */
+  margin: 4px 2px; /* Margine intorno ai bottoni */
+  cursor: pointer; /* Cursori a forma di puntatore */
+  border-radius: 5px; /* Bordi arrotondati */
+  transition-duration: 0.4s; /* Durata dell'effetto di transizione */
+}
+
+.action-buttons button:hover {
+  background-color: #00b32d; /* Colore di sfondo al passaggio del mouse */
+  color: white; /* Testo bianco */
+}
+
+/* Stile specifico per il bottone Elimina */
+.action-buttons button:nth-child(2) {
+  background-color: #dc3545; /* Colore di sfondo rosso */
+}
+
+.action-buttons button:nth-child(2):hover {
+  background-color: #8b121e; /* Colore di sfondo rosso scuro al passaggio del mouse */
+}
+
+#add-product-btn {
+  background-color: #4CAF50; /* Verde più vivace */
+  color: white;
+  padding: 9px 17px; /* Più compatto */
+  font-size: 20px; /* Dimensione del testo ridotta */
+  border: none;
+  cursor: pointer;
+  margin-bottom: 18px; /* Distanza dal titolo della tabella mantenuta */
+  transition: background-color 0.3s, box-shadow 0.2s; /* Transizione fluida */
+  border-radius: 4px; /* Bordi leggermente più arrotondati */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Ombreggiatura più sottile */
+}
+
+#add-product-btn:hover {
+  background-color: #45a049; /* Colore al passaggio del mouse un po' più scuro */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ombreggiatura più pronunciata al passaggio del mouse */
+}
+
+#add-product-btn i {
+  margin-right: 5px;
+}
+
+#filter-low-stock-btn {
+  background-color: #4CAF50; /* Verde */
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin: 10px 0; /* Spazio sopra e sotto il bottone */
+  border-radius: 5px; /* Bordi arrotondati */
+}
+
+#filter-low-stock-btn:hover {
+  background-color: #45a049; /* Un verde leggermente più scuro per l'hover */
+}
+
+#filter-low-stock-btn i {
+  margin-right: 5px;
+}
+
+#sidebar-toggle {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+}
+
+#sidebar-toggle i {
+  color: #ffffff; /* Assicurati che l'icona sia visibile contro il colore di sfondo dell'header */
+  font-size: 24px; /* Regola la dimensione dell'icona secondo necessità */
+}
+
+/* Stile generale del Form */
+#add-product-form {
+background-color: #f8f8f8; /* Colore di sfondo */
+border-radius: 8px; /* Bordi arrotondati */
+padding: 20px; /* Spaziatura interna */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra leggera per un effetto "elevato" */
+max-width: 500px; /* Larghezza massima del form */
+margin: 20px auto; /* Centra il form orizzontalmente */
+}
+
+#add-product-form input[type="text"],
+#add-product-form input[type="number"] {
+width: calc(100% - 24px); /* Larghezza piena con compensazione per il padding */
+padding: 10px 12px; /* Spaziatura interna */
+margin-bottom: 15px; /* Margine inferiore */
+border: 1px solid #ccc; /* Bordo */
+border-radius: 4px; /* Bordi arrotondati */
+box-sizing: border-box; /* Assicura che padding e bordo siano inclusi nella larghezza totale */
+}
+
+#add-product-form button {
+background-color: #005792; /* Colore di sfondo */
+color: white; /* Colore del testo */
+padding: 10px 15px; /* Spaziatura interna */
+border: none; /* Rimuove il bordo */
+border-radius: 4px; /* Bordi arrotondati */
+cursor: pointer; /* Cambia il cursore */
+font-size: 16px; /* Dimensione del testo */
+}
+
+#add-product-form button:hover {
+background-color: #013a63; /* Colore di sfondo al passaggio del mouse */
+}
+
+/* Icona del Form */
+.form-icon {
+display: inline-block;
+vertical-align: middle;
+margin-right: 10px; /* Spazio tra l'icona e il testo */
+}
+
+/* Titolo del Form */
+.form-title {
+text-align: center;
+margin-bottom: 20px; /* Spazio sotto il titolo */
+font-size: 20px; /* Dimensione del testo */
+}
+
+#light-theme-toggle.far.fa-sun {
+color: #f39c12; /* Colore giallo per il sole */
+}
+
+/* Icona della luna (tema scuro) */
+#dark-theme-toggle.far.fa-moon {
+color: #34495e; /* Colore blu notte per la luna */
+}
+
+/* Stile aggiuntivo per nascondere/mostrare le icone */
+.theme-toggle a {
+display: none;
+}
+
+.theme-toggle a.active {
+display: block;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #005792;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+
+.sidebar {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  bottom: 0;
+  background-color: #013a63;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 20px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+}
+
+.sidebar ul li a:hover {
+  background-color: #0275d8;
+}
+
+.main-content {
+  margin-left: 0;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #013a63;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

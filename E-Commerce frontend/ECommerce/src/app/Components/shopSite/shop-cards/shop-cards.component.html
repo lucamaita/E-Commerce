@@ -1,0 +1,23 @@
+ <div class="shop-cards">
+   
+        <div class="col-md-3" *ngFor="let product of products">
+          <div class="card">
+
+            <img class="card-img-top" src="{{ product.foto}}" alt="{{ product.name }}">
+            <div class="colors-cart-wrapper">
+
+              <div class="color-checkbox" *ngFor="let color of product.colori">
+                <div class="checkmark" [ngStyle]="{ 'background-color': color}"></div>
+              </div>
+              
+              <button class="shopping-cart"></button>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ product.nome }}</h5>
+              <p class="card-text">{{ product.prezzo | currency:'EUR':'symbol':'1.2-2' }}</p>
+            </div>
+          </div>
+        </div>
+</div>
+<!-- getColorHexCode(color) -->
+<!-- getColorHexCode(product.colore) -->

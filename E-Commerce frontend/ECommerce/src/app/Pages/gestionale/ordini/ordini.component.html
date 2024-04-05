@@ -1,0 +1,33 @@
+ <header>
+    <div id="sidebar-toggle">
+      <i (click)="onClick()" class="fas fa-bars"></i>
+    </div>
+    Gestionale di Amministrazione - Ordini
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  </header>
+<app-sidebar></app-sidebar>
+
+  
+
+<div *ngIf="isActive">
+<app-sidebar [isActive]="isActive"></app-sidebar>
+</div>
+<h1>Ordini</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID Ordine</th>
+      <th>Cliente</th>
+      <th>Stato</th>
+      <th>Totale</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ordine of ordini">
+      <td>{{ ordine.id }}</td>
+      <td>{{ ordine.user.email }}</td>
+      <td>{{ ordine.stato }}</td>
+      <td>{{ ordine.prezzo }}</td>
+    </tr>
+  </tbody>
+</table>

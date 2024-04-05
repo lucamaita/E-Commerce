@@ -1,0 +1,56 @@
+:host {
+  display: flex;
+  justify-content: center;
+
+}
+
+.BUBU {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  gap: 10px;
+}
+
+.round-checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: black;
+}
+
+.round-checkbox input {
+  display: none;
+}
+
+.checkmark {
+  /* position: relative; */
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.round-checkbox input:checked+.checkmark {
+  background-color: black;
+  border-color: black;
+}
+
+.round-checkbox .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 6px;
+  height: 12px;
+  border: solid #333;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}

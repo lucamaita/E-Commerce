@@ -1,0 +1,31 @@
+<form class="login-form">
+  <span class="login-title">Sign In</span>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Username"
+      [(ngModel)]="username"
+      name="username"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      type="password"
+      placeholder="Password"
+      [(ngModel)]="password"
+      name="password"
+      required
+    />
+  </mat-form-field>
+
+  <div class="action-btn">
+    <button type="submit" mat-raised-button color="primary" (click)="signIn()">
+      Login
+    </button>
+    <button type="submit" mat-raised-button color="primary" (click)="signUp()">
+      Sign Up
+    </button>
+  </div>
+</form>

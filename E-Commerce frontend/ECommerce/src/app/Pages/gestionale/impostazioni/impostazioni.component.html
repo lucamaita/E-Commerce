@@ -1,0 +1,26 @@
+
+<header>
+    <div id="sidebar-toggle" onclick="toggleSidebar()">
+      <i class="fas fa-bars"></i>
+    </div>
+    Gestionale di Amministrazione - Impostazioni
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  </header>
+<app-sidebar></app-sidebar>
+
+  <div class="main-content">
+    <h1>Impostazioni</h1>
+    <form>
+      <fieldset>
+        <legend>Cambia Password</legend>
+        <label for="current-password">Password Attuale:</label>
+        <input type="password" id="current-password" name="current-password" required>
+        <label for="new-password">Nuova Password:</label>
+        <input type="password" id="new-password" name="new-password" required>
+        <label for="confirm-password">Conferma Nuova Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+        <input type="submit" value="Cambia Password">
+      </fieldset>
+
+    </form>
+  </div>

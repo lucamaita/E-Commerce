@@ -1,0 +1,55 @@
+:host {
+    padding-top: 4px;
+    padding-left: 60px;
+
+    display: grid;
+    align-items: center;
+    grid-auto-flow: column;
+    grid-template-columns: auto .8fr .2fr;
+    max-height: 70px;
+    height: 70px;
+    background: white;
+}
+
+.logo {
+    width: 155px;
+    cursor: pointer;
+
+}
+
+.right-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.shopping-cart {
+    background: url("/assets/shoppingCart.png") center no-repeat;
+    border: none;
+    background-size: 100%;
+    width: 34px;
+    height: 34px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+
+.btn-accedi,
+.btn-logout {
+
+    border: none;
+    background-color: inherit;
+    padding: 14px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    color: black;
+}
+
+.container-auth {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

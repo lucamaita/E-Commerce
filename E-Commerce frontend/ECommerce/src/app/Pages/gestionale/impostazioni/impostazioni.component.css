@@ -1,0 +1,146 @@
+
+header {
+  background-color: #005792;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  position: relative; /* Importante per il posizionamento assoluto dell'icona dell'hamburger */
+}
+
+.main-content {
+  margin-left: 0;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="password"], select {
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+}
+
+input[type="submit"] {
+  background-color: #005792;
+  color: #ffffff;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #003d5b;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #005792;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+form {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="password"],
+select,
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box; 
+}
+
+input[type="submit"] {
+  background-color: #005792;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #0275d8;
+}
+/* Icona dell'hamburger posizionata a sinistra */
+.hamburger-icon {
+  position: absolute;
+  left: 20px; /* Distanza dall'angolo sinistro */
+  top: 20px; /* Distanza dall'alto, aggiustalo secondo il bisogno */
+  z-index: 1000; /* Assicurati che sia sopra gli altri elementi */
+}
+
+/* Sidebar parzialmente visibile */
+.sidebar {
+  width: 250px; /* Larghezza della tua sidebar */
+  position: fixed;
+  left: -200px; /* Modifica questo valore per controllare quanto della sidebar è visibile */
+  transition: left 0.3s ease; /* Transizione fluida */
+}
+
+/* Esempio di come mostrare la sidebar quando l'icona dell'hamburger è cliccata o quando il mouse è sopra la sidebar */
+.sidebar:hover,
+.hamburger-icon:hover + .sidebar { /* Assumi che l'icona dell'hamburger sia direttamente seguita dalla sidebar nel tuo HTML */
+  left: 0; /* Modifica per mostrare completamente la sidebar */
+}
+
+/* Aggiunge una transizione al passaggio del mouse sull'icona dell'hamburger per una migliore UX */
+.hamburger-icon:hover {
+  cursor: pointer; /* Cambia il cursore per indicare che è cliccabile */
+}
+#sidebar-toggle {
+  position: absolute;
+  left: 20px; /* Spazio dall'angolo sinistro */
+  top: 20px; /* Spazio dall'alto, adattalo se necessario */
+  cursor: pointer; /* Indica che è cliccabile */
+}
