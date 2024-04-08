@@ -37,6 +37,7 @@ git clone https://github.com/lucamaita/E-Commerce
 
 2. Backend:
    - Assicurati di avere Java e Maven installati sul tuo sistema.
+   - Il database potrebbe essere stato rimosso da Microsoft Azure, nel caso assicurati di avere mysql server, e un database rinominato ecommerce, la generazione delle tabelle verrà gestita in automatico da spring boot.
    - Vai alla directory del backend e avvia l'applicazione Spring Boot.
    - IDE utilizzato in fase di sviluppo BE: Intellij IDEA.
 
@@ -45,5 +46,7 @@ git clone https://github.com/lucamaita/E-Commerce
    - Vai alla directory del frontend e installa le dipendenze.
 
 4. Avvia l'applicazione Angular.
+
+5. Raggiungi l'indirizzo http://localhost:4200/ dal tuo browser preferito.
 
 Autori: [Luca Maita, Fabio Follis, Lorenzo Caiafa, Luciano Colaneri, Paolo Carriero, Jennifer Camicia]
